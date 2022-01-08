@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	mode:'development',
+	mode:'production',
 
 	cache:{
 		type: 'filesystem'
@@ -23,9 +23,11 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets:['@babel/preset-react'],
+						presets:[['@babel/preset-env',{modules:false}],'@babel/preset-react'],
 						cacheDirectory: true,
-						cacheCompression: false
+						cacheCompression: false,
+						plugins:['@babel/plugin-transform-runtime','@babel/plugin-syntax-dynamic-import',
+							'@babel/plugin-proposal-class-properties']
 					}
 				},
 

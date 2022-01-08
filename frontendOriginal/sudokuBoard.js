@@ -1,10 +1,14 @@
 import React from 'react';
 import SudokuCell from './sudokuCell.js';
+import ButtonComponent from './buttonComponent.js';
 
 export default class SudokuBoard extends React.Component{
 	constructor(props){
 		super(props);
 		this.handleChange = this.props.onChangeHandler.bind(this);
+		this.solveHandler = this.props.solveHandler.bind(this);
+		this.checkHandler = this.props.checkHandler.bind(this);
+		this.newSudokuHandler = this.props.newSudokuHandler.bind(this);
 	}
 
 
@@ -26,7 +30,17 @@ export default class SudokuBoard extends React.Component{
 
 		return (
 			<div className = 'sudokuBoard'>
-			{this.board}
+				<div className = 'board'>
+					{this.board}
+				</div>
+				
+				<div className = 'buttons'>
+
+					<ButtonComponent functionHandler = {this.solveHandler} text = 'Solve'/>
+					<ButtonComponent functionHandler = {this.checkHandler} text = 'Check'/>
+					<ButtonComponent functionHandler = {this.newSudokuHandler} text = 'New Puzzle'/>
+				
+				</div>
 			</div>);
 	}
 

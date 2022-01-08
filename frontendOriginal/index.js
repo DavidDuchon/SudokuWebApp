@@ -9,6 +9,9 @@ class App extends React.Component{
 		this.state = {sudoku:[],solvedSudoku:[],wrongMode:false,isPuzzle:false}
 		this.onChangeHandler = this.onChangeHandler.bind(this);
 		this.fetchPuzzle = this.fetchPuzzle.bind(this);
+		this.solveSudoku = this.solveSudoku.bind(this);
+		this.checkSudoku = this.checkSudoku.bind(this);
+		this.newSudoku = this.newSudoku.bind(this);
 	}
 
 	onChangeHandler(e,x,y){
@@ -38,6 +41,50 @@ class App extends React.Component{
 								});
 					return {sudoku:newSudoku,wrongMode:false};
 			});
+
+	}
+
+	solveSudoku(e){
+
+		this.solvedSudoku = [...this.state.sudoku];
+
+		for(let i = 0;i < 9;i++){
+
+			for(let j = 0;j < 9;j++){
+
+				this.solvedSudoku[i*9 + j].value = this.state.solvedSudoku[i][j];
+			}
+		}
+
+		this.setState({sudoku:this.solvedSudoku});
+
+	}
+
+	newSudoku(e){
+
+		this.setState({isPuzzle:false});
+	
+	}
+
+	checkSudoku(e){	
+		
+		this.currentSudoku = [...this.state.sudoku];
+
+		for(let i = 0;i < 9;i++){
+
+			for(let j = 0;j < 9;j++){
+
+				if (this.currentSudoku[i*9 + j].value != this.state.solvedSudoku[i][j]){
+
+					this.currentSudoku[i*9 + j].wrong = true;
+				}
+				else{
+					this.currentSudoku[i*9 + j].wrong = false;
+				}
+			}
+		}
+
+		this.setState({sudoku:this.currentSudoku,wrongMode:true});
 
 	}
 
@@ -80,7 +127,7 @@ class App extends React.Component{
 
 			console.log(this.state.sudoku);
 			return (
-				<SudokuBoard onChangeHandler = {this.onChangeHandler} sudoku = {this.state.sudoku} wrongMode = {this.state.wrongMode}/>
+				<SudokuBoard onChangeHandler = {this.onChangeHandler} sudoku = {this.state.sudoku} wrongMode = {this.state.wrongMode} solveHandler = {this.solveSudoku} checkHandler = {this.checkSudoku} newSudokuHandler = {this.newSudoku}/>
 			);
 		}
 
