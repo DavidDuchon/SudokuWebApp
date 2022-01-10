@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SudokuBoard from './sudokuBoard.js';
 import ChooseComponent from './chooseComponent.js';
+import './App.css';
 
 class App extends React.Component{
 	constructor(props){
@@ -56,13 +57,13 @@ class App extends React.Component{
 			}
 		}
 
-		this.setState({sudoku:this.solvedSudoku});
+		this.setState({sudoku:this.solvedSudoku,wrongMode:false});
 
 	}
 
 	newSudoku(e){
 
-		this.setState({isPuzzle:false});
+		this.setState({isPuzzle:false,wrongMode:false});
 	
 	}
 
