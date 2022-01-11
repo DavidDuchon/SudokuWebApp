@@ -63,7 +63,7 @@ class App extends React.Component{
 
 	newSudoku(e){
 
-		this.setState({isPuzzle:false,wrongMode:false});
+		this.setState({isPuzzle:false,wrongMode:false,difficulty:''});
 	
 	}
 
@@ -113,7 +113,7 @@ class App extends React.Component{
 			}
 		}
 
-		this.setState({sudoku:sudoku,solvedSudoku:response.solvedSudoku,isPuzzle:true});
+		this.setState({sudoku:sudoku,solvedSudoku:response.solvedSudoku,isPuzzle:true,difficulty:e.target.value});
 	
 	}
 
@@ -128,7 +128,7 @@ class App extends React.Component{
 
 			console.log(this.state.sudoku);
 			return (
-				<SudokuBoard onChangeHandler = {this.onChangeHandler} sudoku = {this.state.sudoku} wrongMode = {this.state.wrongMode} solveHandler = {this.solveSudoku} checkHandler = {this.checkSudoku} newSudokuHandler = {this.newSudoku}/>
+				<SudokuBoard onChangeHandler = {this.onChangeHandler} sudoku = {this.state.sudoku} wrongMode = {this.state.wrongMode} solveHandler = {this.solveSudoku} checkHandler = {this.checkSudoku} newSudokuHandler = {this.newSudoku} difficulty = {this.state.difficulty}/>
 			);
 		}
 

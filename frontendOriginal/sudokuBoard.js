@@ -15,6 +15,7 @@ export default class SudokuBoard extends React.Component{
 	render(){
 
 		this.wrongMode = this.props.wrongMode;
+		this.difficulty = this.props.difficulty;
 
 		this.board = []
 
@@ -30,6 +31,8 @@ export default class SudokuBoard extends React.Component{
 
 		return (
 			<div className = 'sudokuBoard'>
+				<p>{this.difficulty}</p>
+				
 				<div className = 'board'>
 					{this.board}
 				</div>

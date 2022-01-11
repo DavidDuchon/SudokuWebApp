@@ -16,7 +16,15 @@ export default class ChooseComponent extends React.Component{
 			buttons.push(<ButtonComponent functionHandler = {this.functionHandler} text = {difficulties[i]}/>);
 		}
 
-		return ([buttons]);
+		return (
+			<div>
+				<p> Choose difficulty </p>
+				<div className = 'choose'>
+					
+					{buttons}
+				</div>
+			</div>
+		);
 	}
 
 
