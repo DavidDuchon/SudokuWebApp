@@ -15,16 +15,14 @@ export default class SudokuCell extends React.Component{
 		this.wrong = this.props.wrong;
 		this.wrongMode = this.props.wrongMode;
 		this.value = this.props.value;
+		this.className = 'sudokuCell';
 
 		if (this.value == 0){
 			this.value = '';
 		}
 
 		if(!this.original && this.wrong && this.wrongMode){
-			this.className = 'sudokuCellWrong';
-		}
-		else{
-			this.className = 'sudokuCell'
+			this.className += ' sudokuCellWrong';
 		}
 
 		return (

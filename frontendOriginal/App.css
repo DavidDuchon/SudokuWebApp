@@ -33,9 +33,9 @@ button {
 
 }
 
-.sudokuCell input, .sudokuCellWrong input{
-	width:64px;
-	height:64px;
+.sudokuCell input{
+	width:100%;
+	height:100%;
 	border:none;
 	padding:0;
 	outline:none;
@@ -45,14 +45,31 @@ button {
 	font-weight:900;
 
 }
-.sudokuCell,.sudokuCellWrong {
+.sudokuCell{
 	display:flex;
 	justify-content: center;
 	align-items:center;
-	width:64px;
-	height:64px;
-	border:3px black solid;
+	width:70px;
+	height:70px;
+	border:1px black solid;
+	box-sizing:border-box;
 }
+.sudokuCell:nth-child(9n + 3),.sudokuCell:nth-child(9n + 6){
+	border-right:5px black solid;
+}
+
+.sudokuCell:nth-child(27n + 19),
+.sudokuCell:nth-child(27n + 20),
+.sudokuCell:nth-child(27n + 21),
+.sudokuCell:nth-child(27n + 22),
+.sudokuCell:nth-child(27n + 23),
+.sudokuCell:nth-child(27n + 24),
+.sudokuCell:nth-child(27n + 25),
+.sudokuCell:nth-child(27n + 26),
+.sudokuCell:nth-child(27n + 27){
+	border-bottom:5px black solid;
+}
+
 
 .sudokuCellWrong input{
 	background-color: rgba(230,34,34,0.5);
@@ -63,6 +80,8 @@ button {
 
 	margin:0 auto;
 	display: grid;
+	border:6px solid black;
+	
 
 	grid-template-columns: repeat(9,70px);	
 

@@ -16,9 +16,7 @@ async function getPuzzle(difficulty,count){
 
 	const collection = database.collection(difficulty.toLowerCase());
 
-	const query = {state:'OK'};
-
-	const document = await collection.findOne({_id:{$eq:randomNumber(1,count)}});
+	const document = await collection.findOne({_id:{$eq:randomNumber(0,count)}});
 
 	return document;
 }
