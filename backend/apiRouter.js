@@ -5,7 +5,7 @@ const {MongoClient} = require('mongodb');
 const client = new MongoClient('mongodb://localhost:27017');
 
 function randomNumber(min,max){
-	return (Math.floor(Math.random()*(max-min+1)) + min);
+	return (Math.floor(Math.random()*(max-min)) + min);
 }
 
 async function getPuzzle(difficulty,count){

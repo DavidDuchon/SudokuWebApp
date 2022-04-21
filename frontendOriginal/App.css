@@ -2,16 +2,16 @@
 #root {
 
 	margin:0 auto;
-	width:80%;
 	font-family:'Tahoma','Arial','sans-serif';
 	font-size:1.8em;
 	font-weight:900;
 	text-align:center;
+	height:80vh;
 
 }
 
 p {
-	font-size:1.8em;
+	font-size:5vmin;
 }
 
 .choose {
@@ -21,14 +21,14 @@ p {
 button {
 
 	font-family:'Tahoma','Arial','sans-serif';
-	font-size:1em;
+	font-size:4vmin;
 	font-weight:700;
-	padding:20px;
-	margin:10px;
+	padding:2vmin;
+	margin:2vmin;
 	background-color:black;
 	color:white;
 	border:none;
-	border-radius:20px;
+	border-radius:10px;
 	
 
 }
@@ -41,17 +41,17 @@ button {
 	outline:none;
 	text-align:center;
 	font-family:'Tahoma','Arial','sans-serif';
-	font-size:1.2em;
-	font-weight:900;
+	font-size:6vmin;
+	font-weight:500;
 
 }
 .sudokuCell{
 	display:flex;
 	justify-content: center;
 	align-items:center;
-	width:70px;
-	height:70px;
-	border:1px black solid;
+	width:8vmin;
+	height:8vmin;
+	border:2px black solid;
 	box-sizing:border-box;
 }
 .sudokuCell:nth-child(9n + 3),.sudokuCell:nth-child(9n + 6){
@@ -80,10 +80,10 @@ button {
 
 	margin:0 auto;
 	display: grid;
-	border:6px solid black;
+	border:5px solid black;
 	
 
-	grid-template-columns: repeat(9,70px);	
+	grid-template-columns: repeat(9,8vmin);	
 
 }
 .sudokuBoard {
@@ -92,6 +92,7 @@ button {
 
 	flex-direction: column;
 	justify-content:center;
+
 }
 
 .buttons{
